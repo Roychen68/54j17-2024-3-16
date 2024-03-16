@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <style>
+        img.map{
+            display: flex;
+            height: 450px;
+            width: 900px;
+        }
+        body{
+            display: flex;
+        }
+        div.news{
+            display: flex;
+            width: 1400px;
+            height: 450px;
+            margin: auto;
+        }
+        div.card{
+            width: 500px;
+        }
+        img.location1{
+            width: 30px;
+            height: 50px;
+            margin-left: 650px;
+            margin-top: 150px;
+            position: absolute;
+            cursor: pointer;
+        }
+        img.location2{
+            width: 30px;
+            height: 50px;
+            margin-left: 630px;
+            margin-top: 70px;
+            position: absolute;
+            cursor: pointer;
+        }
+        img.location3{
+            width: 30px;
+            height: 50px;
+            margin-left: 140px;
+            margin-top: 80px;
+            position: absolute;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav"></div>
+    <div class="news">
+        <img src="./img/png-transparent-location-logo-location-computer-icons-symbol-location-miscellaneous-angle-heart.png" alt="" class="location1">
+        <img src="./img/png-transparent-location-logo-location-computer-icons-symbol-location-miscellaneous-angle-heart.png" alt="" class="location2">
+        <img src="./img/png-transparent-location-logo-location-computer-icons-symbol-location-miscellaneous-angle-heart.png" alt="" class="location3">
+        <img class="map" src="./img/licensed-image.jfif"></img>
+        <div class="card">
+            <iframe class="yt" width="500" height="500" src="https://www.youtube.com/embed/5uPoDNEn3I0" allowfullscreen></iframe>
+        </div>
+    </div>
+</body>
+</html>
+<script src="jquery.js"></script>
+<script>
+    $(".nav").load("header.html")
+    $(".location1").click(function () {
+        $(".yt").attr("src","https://www.youtube.com/embed/OjNpRbNdR7E")
+    })
+    $(".location2").click(function () {
+        $(".yt").attr("src","https://www.youtube.com/embed/sLxJAH6zeEA")
+    })
+    $(".location3").click(function () {
+        $(".yt").attr("src","https://www.youtube.com/embed/5uPoDNEn3I0")
+    })
+</script>

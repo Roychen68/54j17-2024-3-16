@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickets</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <style>
+        body{
+            display: flex;
+        }
+        div.nav{
+            width: 1920px;
+            height: 1080px;
+        }
+        div.card{
+            width: 860px;
+            height: 380px;
+            margin: auto;
+            border-radius: 10px 10px 50px 50px;
+            transition: 500ms;
+            background: rgb(223, 223, 223);
+        }
+        div.card:hover{
+            box-shadow: 8px 12px rgb(66, 66, 66);
+            bottom: 8px;
+        }
+        div.input-group{
+            padding: 10px 8px;
+        }
+        input.form-control{
+            padding: 10px 8px;
+            border: 2px solid grey;
+        }
+        span.input-group-text{
+            border-radius: 5px 0 0 5px;
+            background: none;
+            border: 1px solid orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav"></div>
+    <div class="card">
+        <div class="input-group">
+            <span class="input-group-text">First name</span>
+            <input type="text" name="" id="firstname" class="form-control">
+        </div>
+        <div class="input-group">
+            <span class="input-group-text">Last name</span>
+            <input type="text" name="" id="lastname" class="form-control">
+        </div>
+        <div class="input-group">
+            <span class="input-group-text">Phone</span>
+            <input type="text" name="" id="phone" class="form-control">
+        </div>
+        <div class="input-group">
+            <span class="input-group-text">Tickets</span>
+            <input type="text" name="" id="password" class="form-control">
+        </div>
+        <div class="input-group">
+            <span class="input-group-text">Verifiaction</span>
+            <span class="input-group-text veri" style="border-radius: 0;"></span>
+            <input type="text" name="" id="veri" class="form-control">
+            <button class="btn btn-info input-group-append" style="border-radius: 0 5px 5px 0;">refresh</button>
+        </div>
+        <button type="button" id="submit" class="btn btn-primary" style="width: 100px;margin: auto;">submit</button>
+    </div>
+</body>
+</html>
+<script src="jquery.js"></script>
+<script>
+    let data
+    $(".nav").load("header.html")
+
+    $(document).ready(function () {
+      $.get("veri.php",function (veri) {
+        $(".veri").text(veri)
+        data = veri
+        console.log(data);
+    })
+    $(".btn-info").click(function () {
+        $.get("veri.php",function (veri) {
+        $(".veri").text(veri)
+        data = veri
+        console.log(data);
+    })
+})
+})
+$(document).ready(function () {
+    $("#submit").click(function () {
+        var form = {
+            firstname: $("#firstname").val(),
+            lastname: $("#lastname").val(),
+            phone: $("#phone").val(),
+            password: $("#password").val()
+        }
+        if ($("#veri").val() == data) {
+            $.post("post.php",form,function (response) {
+            alert("data sended")
+            console.log(response);
+            // location.href = "home.html"
+        })
+        } else {
+            alert("please check the verifaction");
+            console.log(veri);
+        }
+    })
+})
+    
+</script>

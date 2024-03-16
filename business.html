@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <style>
+        body{
+            display: flex;
+        }
+        div.nav{
+            width: 1920px;
+            height: 1080px;
+            z-index: 999;
+        }
+        img.card-img-top{
+            width: 600px;
+        }
+        div.card{
+            height: 600px;
+            margin: auto;
+        }
+        iframe.content1{
+            display: none;
+        }iframe.content2{
+            display: none;
+        }
+        iframe{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav"></div>
+    <div class="card">
+        <img src="./img/a6531dc6-b44b-11ee-b078-b49691e6ead0_1200x.jpg" alt="" class="card-img-top">
+        <div class="card-body">
+            <h3>設計展資訊區</h3>
+            <p>I forgot what is the activity</p>
+            <button class="btn btn-primary btn1">read more</button>
+            <iframe width="500" src="https://www.youtube.com/embed/dQw4w9WgXcQ" class="content2" title="Rick Astley - Never Gonna Give You Up (Official Music Video)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="card">
+        <img src="./img/bbdc8fc4-b059-11ee-94e5-b49691e6ead0_1200x.jpg" alt="" class="card-img-top">
+        <div class="card-body">
+           <h3>作品介紹區</h3>
+            <p>I also forgot what is the activity</p>
+            <button class="btn btn-primary btn2">read more</button>
+            <iframe width="500" src="https://www.youtube.com/embed/dQw4w9WgXcQ" class="content1" title="Rick Astley - Never Gonna Give You Up (Official Music Video)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+    </div>
+</body>
+</html>
+<script src="jquery.js"></script>
+<script>
+    $(".nav").load("header.html")
+    $(".btn1").click(function () {
+        if ($(".btn1").text()=="read more") {
+            console.log("click");
+            $(".btn1").text("read less");
+            $(".content2").slideToggle("fast");
+        }else{
+            $(".btn1").text("read more");
+            $(".content2").slideToggle("fast");
+        }
+    })
+    $(".btn2").click(function () {
+        if ($(".btn2").text()=="read more") {
+            console.log("click");
+            $(".btn2").text("read less");
+            $(".content1").slideToggle("fast");
+        }else{
+            $(".btn2").text("read more");
+            $(".content1").slideToggle("fast");
+        }
+    })
+</script>
